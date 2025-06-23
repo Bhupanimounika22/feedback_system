@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://feedback-backend-0ziu.onrender.com/api';
+const API_URL = 'https://feedback-backend-0ziu.onrender.com/api' ||  'http://localhost:5001/api';
 
 const getAuthHeaders = () => {
     const token = localStorage.getItem('token');
