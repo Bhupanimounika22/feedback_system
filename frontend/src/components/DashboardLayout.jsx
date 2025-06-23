@@ -76,14 +76,14 @@ const DashboardLayout = ({ children }) => {
         <Divider />
         <List>
           <ListItem disablePadding>
-            <ListItemButton onClick={logout}>
-              logout();
-              navigate('/');
-              <ListItemIcon>
-                <LogoutIcon />
-              </ListItemIcon>
-              <ListItemText primary="Logout" />
-            </ListItemButton>
+           <ListItemButton onClick={() => {logout();
+                                           navigate('/');}}>
+             <ListItemIcon>
+               <LogoutIcon />
+             </ListItemIcon>
+             <ListItemText primary="Logout" />
+           </ListItemButton>
+
           </ListItem>
         </List>
       </Box>
