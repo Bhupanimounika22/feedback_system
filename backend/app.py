@@ -7,7 +7,12 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 # More specific CORS configuration to allow requests from the frontend
-CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})
+
+CORS(app, resources={r"/api/*": {"origins": [
+    "http://localhost:3000",  # for local testing
+    "https://feedback-system-ko4y.onrender.com"  # your deployed frontend
+]}})
+
 DB_USER = os.environ.get('DB_USER')
 DB_PASSWORD = os.environ.get('DB_PASSWORD')
 DB_HOST = os.environ.get('DB_HOST')
