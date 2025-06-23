@@ -8,11 +8,16 @@ from werkzeug.security import generate_password_hash, check_password_hash
 app = Flask(__name__)
 # More specific CORS configuration to allow requests from the frontend
 CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})
-
+DB_USER = os.environ.get('DB_USER')
+DB_PASSWORD = os.environ.get('DB_PASSWORD')
+DB_HOST = os.environ.get('DB_HOST')
+DB_PORT = os.environ.get('DB_PORT', 3306)
+DB_NAME = os.environ.get('DB_NAME')
 # Database Configuration - Updated for local development
 # IMPORTANT: Replace "YOUR_ROOT_PASSWORD" with your actual MySQL root password
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'mysql+pymysql://root:password@localhost:3307/employee_feedback')
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config["SQLALCHEMY_DATABASE_URI"] = (
+    f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+) 
 db = SQLAlchemy(app)
 
 # --- Database Models ---
