@@ -77,6 +77,8 @@ const DashboardLayout = ({ children }) => {
         <List>
           <ListItem disablePadding>
             <ListItemButton onClick={logout}>
+              logout();
+              navigate('/');
               <ListItemIcon>
                 <LogoutIcon />
               </ListItemIcon>
