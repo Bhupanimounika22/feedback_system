@@ -15,7 +15,7 @@ The easiest way to get the application running is by using Docker.
 1.  **Clone the repository:**
     ```bash
     git clone https://github.com/Bhupanimounika22/feedback_system.git
-    cd DPDZERO
+    cd feedback_system
     ```
 
 2.  **Run the application using Docker Compose:**
